@@ -1,0 +1,5 @@
+hello
+
+<?php
+echo ”goodbye”;
+?>
