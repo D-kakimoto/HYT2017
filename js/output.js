@@ -50,7 +50,7 @@ function set_markers(geoCodeResults,address) {
 function attachMessage(marker, msg) {
     google.maps.event.addListener(marker, 'click', function(event) {
 	new google.maps.InfoWindow({
-	    content: msg
+	    content:msg
 	}).open(marker.getMap(), marker);
     });
 }
