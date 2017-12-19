@@ -18,6 +18,14 @@ function set_resource() {
         //マーカー追加
         resource[i] = new google.maps.Marker({
         position: resource_latlng, //マーカーを表示させる座標
+        icon: {
+          fillColor: "#ffa020",                //塗り潰し色
+		      fillOpacity: 0.8,                    //塗り潰し透過率
+		      path: google.maps.SymbolPath.CIRCLE, //円を指定
+		      scale: 5,                           //円のサイズ
+		      strokeColor: "#ffa020",              //枠の色
+		      strokeWeight: 0.8                  //枠の透過率
+        },
         map: map, //マーカーを表示させる地図
         title : json[i].resourceName //マウスオーバーした際に表示させる文字列
         });
