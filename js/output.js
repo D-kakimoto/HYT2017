@@ -1,6 +1,5 @@
+//マップのインスタンスを定義
 var map;
-var from = "和歌山市駅";
-var to = "和歌山アドベンチャーワールド";
 
 //初期化処理でGoogle Mapsを表示
 $(function(){
@@ -13,19 +12,21 @@ $(function(){
 	     mapTypeControl: true
     };
     map = new google.maps.Map(document.getElementById("map_canvas"),mapProp);
-    get_latlng(from);
-    get_latlng(to);
 });
 
 //緯度経度を取得(入力：住所(文字列)→出力：geoCodeResults(オブジェクト))
-function get_latlng(address){
+function get_latlng(address,type){
     $.ajax({
         url: 'http://maps.googleapis.com/maps/api/geocode/json',
         data: {
             address:address
         }
     }).done(function(geoCodeResults, status){
-        set_markers(geoCodeResults,address);
+        if(type == "from_to_set"){
+          set_markers(geoCodeResults,address);
+        }else if (type == "via_set"){
+          console.log("デバッグ");
+        }
     }).fail(function(data){
         console.log("ジオコーディングに失敗");
     });
@@ -53,4 +54,21 @@ function attachMessage(marker, msg) {
 	    content:msg
 	}).open(marker.getMap(), marker);
     });
+}
+
+//出発地と目的地が送信された時の処理
+onload=function(){
+  var button = document.getElementById("button");
+  // ボタンが押された時の処理
+  button.onclick = function(){
+    // フォームに入力された住所情報を取得
+    var from = document.getElementById("from").value;
+    var to = document.getElementById("to").value;
+    if(!from && !to){
+      get_latlng(from,"from_to_set");
+      get_latlng(to,"from_to_set");
+    }else{
+      alert("未入力の値があります");
+    }
+  }
 }
