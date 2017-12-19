@@ -6,9 +6,6 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBKrcan37P6VmQ8B6EEoCBSoiZW7g4ptug">//</script>
-    <script tye="text/javascript" src="js/jquery-2.2.4.min.js">//</script>
-    <script tye="text/javascript" src="js/jquery_csv.js">//</script>
-    <script tye="text/javascript" src="js/encoding.min.js">//</script>
     <script tye="text/javascript" src="js/output.js">//</script>
     <script tye="text/javascript" src="js/resource.js">//</script>
     <script tye="text/javascript" src="js/get_tourist_csv.js">//</script>
@@ -17,13 +14,10 @@
   <body>
     <h1>寄り道支援アプリケーション</h1>
     <form>
-      <input type="text" value="和歌山市駅" id="from">
-      <input type="text" value="和歌山アドベンチャーワールド" id="to">
+      <input type="text" name="from" value="和歌山市駅" id="from">
+      <input type="text" name="to" value="和歌山アドベンチャーワールド" id="to">
       <input type="button" value="マーカ表示" id="button">
     </form>
-    <div style="width:500px;height:300px;" id="map_canvas"></div>
-    <?php
-    echo "こんにちは";
-    ?>
+    <div style="width:600px;height:400px;" id="map_canvas"></div>
   </body>
 </html>
