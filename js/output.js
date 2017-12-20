@@ -57,14 +57,14 @@ function attachMessage(marker, msg) {
 }
 
 //出発地と目的地が送信された時の処理
-onload=function(){
+window.onload=function(){
   var button = document.getElementById("button");
   // ボタンが押された時の処理
   button.onclick = function(){
     // フォームに入力された住所情報を取得
     var from = document.getElementById("from").value;
     var to = document.getElementById("to").value;
-    if(!from && !to){
+    if(from != "" && to != ""){
       get_latlng(from,"from_to_set");
       get_latlng(to,"from_to_set");
     }else{

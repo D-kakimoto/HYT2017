@@ -15,7 +15,7 @@
     <h1>寄り道支援アプリケーション</h1>
     <form>
       <input type="text" name="from" value="和歌山市駅" id="from">
-      <input type="text" name="to" value="和歌山アドベンチャーワールド" id="to">
+      <input type="text" name="to" value="和歌山大学" id="to">
       <input type="button" value="マーカ表示" id="button">
     </form>
     <div style="width:600px;height:400px;" id="map_canvas"></div>
