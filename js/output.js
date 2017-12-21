@@ -4,6 +4,8 @@ var f_lat;
 var f_lng;
 var t_lat;
 var t_lng;
+var via_lat;
+var via_lng;
 
 //初期化処理でGoogle Mapsを表示
 $(function(){

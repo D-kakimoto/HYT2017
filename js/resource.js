@@ -1,7 +1,7 @@
+var resource = [];
 set_resource();
 function set_resource() {
   //マーカー配列
-  var resource = [];
   //RESAS_APIからの読み込み
   $.ajax({
     url: "https://opendata.resas-portal.go.jp/api/v1/tourism/attractions?prefCode=30&cityCode=-", //観光資源
@@ -29,6 +29,7 @@ function set_resource() {
         map: map, //マーカーを表示させる地図
         title : json[i].resourceName //マウスオーバーした際に表示させる文字列
         });
+        latlngEvent(i);
       }
     }
   });
