@@ -10,7 +10,7 @@
     <script tye="text/javascript" src="js/resource.js">//</script>
     <script tye="text/javascript" src="js/get_tourist_csv.js">//</script>
     <script tye="text/javascript" src="js/distance.js">//</script>
-    <script tye="text/javascript" src="js/tyouda.js">//</script>
+    <script tye="text/javascript" src="js/popular.js">//</script>
   </head>
 
   <body>
