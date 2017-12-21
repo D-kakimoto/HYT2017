@@ -6,8 +6,6 @@ var f_lat, f_lng;
 var t_lat,t_lng;
 var via_lat,via_lng;
 var turn;
-
-
 //初期化処理でGoogle Mapsを表示
 $(function(){
     var myCenter = new google.maps.LatLng(33.965,135.562);

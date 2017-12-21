@@ -21,9 +21,10 @@ function route(from,to){
       "preserveViewport": true,
       "draggable": true
     });
+
     //右カラムにルート表示
     directionsDisplay.setPanel(document.getElementById("directions_panel"));
-    /*出発地点・到着地点マーカーが移動された時
+    //出発地点・到着地点マーカーが移動された時
     google.maps.event.addListener(directionsDisplay, 'directions_changed',function() {
       currentDirections=directionsDisplay.getDirections();
       var route=currentDirections.routes[0];
@@ -35,11 +36,12 @@ function route(from,to){
         s+=route.legs[i].distance.text;
       }
       dbg("directions_changed:"+s);
-    });*/
+    });
     }
 
     //移動手段変更
     $("#mode").bind("change",function(){
+      console.log("移動手段の変更");
         $(".button-group button").removeClass("active");
         calcRoute(startSpot,endSpot);
         $("#show").addClass("active");
@@ -47,6 +49,8 @@ function route(from,to){
 
     //ルート計算
     function calcRoute(startSpot,endSpot){
+      //ルート初期化
+      $('#directions_panel').empty();
       switch($("#mode").val()){
         case "driving":
           mode=google.maps.DirectionsTravelMode.DRIVING;
