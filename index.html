@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <style>
   html,body,h1,h2,h3,h4,h5 {font-family: "RobotoDraft","Roboto",sans-serif;}
-  #map_canvas { float:left; width:700px; height:500px; }
-  #side { float:right; width:40%; height:100%; }
+  #map_canvas {float:left; margin:10px; width:700px; height:500px; }
+  #side {float:left; width:40%; height:100%; }
   #side .inner { padding:10px; overflow:auto; }
   </style>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -36,13 +36,10 @@
     <div id="map_canvas"></div>
     <div id="side">
       <br>
-      <div id="setbutton">
-        <form>
-          <input type="text" name="from" style="witdth: 400px; height: 50px" placeholder="出発地" id="from">
-          <input type="text" name="to" style="witdth: 400px; height: 50px" placeholder="目的地" id="to"><br><br>
-          <input class="w3-btn w3-large w3-theme w3-margin-bottom" type="button" style="witdth: 400px; height: 50px" value="マーカ表示" id="button">
-          <input class="w3-btn w3-large w3-theme w3-margin-bottom" type="button" style="witdth: 400px; height: 50px" value="取得中データ確認" id="data_check">
-        </form>
+      <div id="setbutton"　style="display:inline-flex">
+        <input type="text" name="from" style="witdth: 300px; height: 30px" placeholder="出発地" id="from">
+        <input type="text" name="to" style="witdth: 300px; height: 30px" placeholder="目的地" id="to">
+        <input type="button" style="witdth: 200px; height: 30px" value="マーカ表示" id="button">
       </div>
       <div class="inner">
       <p>
@@ -72,6 +69,7 @@
     <li>２．寄り道スポットが出てきます</li>
   </ul>
   <br>
+  <input class="w3-btn w3-large w3-theme w3-margin-bottom" type="button" style="witdth: 400px; height: 50px" value="取得中データ確認" id="data_check">
 
   <footer class="w3-container w3-theme w3-padding-hor-32 w3-padding-ver-64">
     <p>ハックユアタウン2017-チームサザン(柿本，長田，安田)</p>
