@@ -11,7 +11,6 @@ function route(from,to){
   }
   calcRoute(startSpot,endSpot);
 
-
   //ルート検索結果の描画
   function render(){
     dbg("render:"+renderFLG);
@@ -69,9 +68,9 @@ function route(from,to){
         render();
       }
       var request={
-        origin:startSpot,           //from
-        destination:endSpot,        //to
-        travelMode:mode             //移動手段
+        origin:startSpot,
+        destination:endSpot,
+        travelMode:mode
       };
       //ルート描画
       directionsService.route(request, function(response, status) {

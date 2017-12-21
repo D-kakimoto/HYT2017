@@ -52,12 +52,14 @@ function set_markers(geoCodeResults,address,type) {
   }
   from_to_distance = location_distance(f_lat,f_lng,t_lat,t_lng);
   //console.log(address+"の緯度、経度を取得："+lat+"、"+lng);
+  /*
   var marker = new google.maps.Marker({
     title:address,
     position: ll,
     map:map
   });
   attachMessage(marker, address+"<br/>");
+  */
 }
 
 //マーカーに吹き出しをつける
