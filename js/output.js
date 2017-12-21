@@ -1,5 +1,9 @@
 //マップのインスタンスを定義
 var map;
+var f_lat;
+var f_lng;
+var t_lat;
+var t_lng;
 
 //初期化処理でGoogle Mapsを表示
 $(function(){
@@ -22,8 +26,8 @@ function get_latlng(address,type){
             address:address
         }
     }).done(function(geoCodeResults, status){
-        if(type == "from_to_set"){
-          set_markers(geoCodeResults,address);
+        if(type == "from_set" || "to_set"){
+          set_markers(geoCodeResults,address,type);
         }else if (type == "via_set"){
           console.log("デバッグ");
         }
@@ -33,11 +37,19 @@ function get_latlng(address,type){
 }
 
 //緯度経度に基づきマーカーを表示
-function set_markers(geoCodeResults,address) {
+function set_markers(geoCodeResults,address,type) {
   var ll = geoCodeResults.results[0].geometry.location;
   lat = ll.lat;
   lng = ll.lng;
   map.setCenter(ll);
+  if(type=="from_set"){
+    f_lat = lat;
+    f_lng = lng;
+  }else if(type=="to_set"){
+    t_lat = lat;
+    t_lng = lng;
+  }
+  console.log(location_distance(f_lat,f_lng,t_lat,t_lng));
   //console.log(address+"の緯度、経度を取得："+lat+"、"+lng);
   var marker = new google.maps.Marker({
     title:address,
@@ -65,8 +77,8 @@ window.onload=function(){
     var from = document.getElementById("from").value;
     var to = document.getElementById("to").value;
     if(from != "" && to != ""){
-      get_latlng(from,"from_to_set");
-      get_latlng(to,"from_to_set");
+      get_latlng(from,"from_set");
+      get_latlng(to,"to_set");
     }else{
       alert("未入力の値があります");
     }
