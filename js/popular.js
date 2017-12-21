@@ -62,29 +62,6 @@ function get_latlng(address,type){
     });
 }
 
-//緯度経度に基づきマーカーを表示
-function set_markers(geoCodeResults,address,type) {
-  var ll = geoCodeResults.results[0].geometry.location;
-  lat = ll.lat;
-  lng = ll.lng;
-  map.setCenter(ll);
-  if(type=="from_set"){
-    f_lat = lat;
-    f_lng = lng;
-  }else if(type=="to_set"){
-    t_lat = lat;
-    t_lng = lng;
-  }
-  console.log(location_distance(f_lat,f_lng,t_lat,t_lng));
-  //console.log(address+"の緯度、経度を取得："+lat+"、"+lng);
-  var marker = new google.maps.Marker({
-    title:address,
-    position: ll,
-    map:map
-  });
-  attachMessage(marker, address+"<br/>");
-}
-
 //有名無名判定（まだ入れてない）
 function tourist(str1){
   var popular;
