@@ -9,13 +9,14 @@
     <script tye="text/javascript" src="js/output.js">//</script>
     <script tye="text/javascript" src="js/resource.js">//</script>
     <script tye="text/javascript" src="js/get_tourist_csv.js">//</script>
+    <script tye="text/javascript" src="js/distance.js">//</script>
   </head>
 
   <body>
     <h1>寄り道支援アプリケーション</h1>
     <form>
-      <input type="text" name="from" value="和歌山市駅" id="from">
-      <input type="text" name="to" value="和歌山大学" id="to">
+      <input type="text" name="from" id="from">
+      <input type="text" name="to" id="to">
       <input type="button" value="マーカ表示" id="button">
     </form>
     <div style="width:600px;height:400px;" id="map_canvas"></div>
