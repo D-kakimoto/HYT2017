@@ -39,7 +39,7 @@ function set_resource() {
 			visible: false,
 			animation: google.maps.Animation.DROP
         });
-		var content = '<h1>' + json[i].resourceName + '</h1>';
+		var content = '<h4>' + json[i].resourceName + '</h4>';
 		infowindow[i] = new google.maps.InfoWindow({
 			content: content,
 			maxWidth: 200
@@ -55,6 +55,8 @@ function set_resource() {
 function markerClick(i) {
 	resource[i].addListener('click', function() {	// マーカーをクリックしたとき
 		infowindow[i].open(map, resource[i]);
-    spot_info(i);
+    latlngEvent(i);
+    //console.log(i);
+    //spot_info(i);
 	});
 }

@@ -21,6 +21,7 @@ function route(from,to){
       "draggable": true
     });
     //右カラムにルート表示
+    $("#directions_panel").empty();
     directionsDisplay.setPanel(document.getElementById("directions_panel"));
     /*出発地点・到着地点マーカーが移動された時
     google.maps.event.addListener(directionsDisplay, 'directions_changed',function() {

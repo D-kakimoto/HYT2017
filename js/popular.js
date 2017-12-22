@@ -1,5 +1,13 @@
 //クリックしたら観光資源を出力するイベントを設定
 function latlngEvent(i) {
+    var pos = resource[i].getPosition(); // 緯度経度の取得
+    var lat = pos.lat();
+    var lng = pos.lng();
+    var popular = reverseGeocoding(lat,lng,i);
+}
+
+/*クリックしたら観光資源を出力するイベントを設定
+function latlngEvent(i) {
   resource[i].event.addListener('click', function(){ // マーカーをクリックしたとき
     var pos = resource[i].getPosition(); // 緯度経度の取得
     var lat = pos.lat();
@@ -9,10 +17,11 @@ function latlngEvent(i) {
   });
   return popular;
 }
+*/
 
 
 // リバースジオコーディング
-function reverseGeocoding(lat,lng) {
+function reverseGeocoding(lat,lng,k) {
   var geocoder;
   var popular;
   geocoder = new google.maps.Geocoder();
@@ -26,7 +35,7 @@ function reverseGeocoding(lat,lng) {
           for (var i = 0; i < address.length; i++) {
             switch (address[i].types[0]) {
               case "locality":
-              popular = tourist(address[i].long_name);
+              tourist(address[i].long_name,k);
               end = 1;
               break;
             }
@@ -38,10 +47,8 @@ function reverseGeocoding(lat,lng) {
       } else {
         alert("Geocoder failed due to: " + status);
       }
-      console.log(popular);
     });
   }
-  return popular;
 }
 
 
@@ -65,20 +72,20 @@ function get_latlng(address,type){
 }
 
 //有名無名判定（まだ入れてない）
-function tourist(str1){
+function tourist(str1,k){
   var popular;
   for(var i=0;i<get_tourist.length;i++){
     if(get_tourist[i]["市町村"] == str1){
       if(get_tourist[i]["h28"] > 1000000){
-        popular="有名";
+        popular=get_tourist[i]["h28"];
       }else{
-        popular="マイナー";
+        popular=get_tourist[i]["h28"];
       }
       break;
     }
     if(i == get_tourist.length - 1){
-        popular="マイナー";
+        popular="観光客数データなし";
     }
   }
-  return popular;
+  spot_info(i,popular);
 }

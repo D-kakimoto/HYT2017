@@ -7,19 +7,23 @@ var t_lat,t_lng;
 var via_lat,via_lng;
 var turn = [];
 
-
-//初期化処理でGoogle Mapsを表示
 $(function(){
-    var myCenter = new google.maps.LatLng(33.965,135.562);
-    var mapProp = {
-	     center:myCenter,
-	     zoom:10,
-	     minZoom:6,
-	     mapTypeId : google.maps.MapTypeId.ROADMAP,
-	     mapTypeControl: true
-    };
-    map = new google.maps.Map(document.getElementById("map_canvas"),mapProp);
+  map_ini();
+  set_resource();
+  get_tourist();
 });
+
+function map_ini(){
+  var myCenter = new google.maps.LatLng(33.965,135.562);
+  var mapProp = {
+     center:myCenter,
+     zoom:10,
+     minZoom:6,
+     mapTypeId : google.maps.MapTypeId.ROADMAP,
+     mapTypeControl: true
+  };
+  map = new google.maps.Map(document.getElementById("map_canvas"),mapProp);
+}
 
 //緯度経度を取得(入力：住所(文字列)→出力：geoCodeResults(オブジェクト))
 function get_latlng(address,type){
@@ -92,22 +96,12 @@ window.onload=function(){
       alert("未入力の値があります");
     }
   }
-  data_check_button.onclick = function(){
-    console.log("取得中データ表示");
-    console.log("出発地:"+from);
-    console.log("目的地:"+to);
-    console.log("出発地から目的地の直線距離:"+from_to_distance);
-    console.log("曲がり角の緯度経度:"+turn[0]);
-    console.log("観光客数に関するcsvデータ:"+get_tourist);
-    console.log("RESASから取得した観光資源情報:"+resource);
-  }
-
 }
 
-function spot_info(i){
+function spot_info(i,popular){
   var element = document.createElement('div');
   element.id = "listup";
-	element.innerHTML = resource_name[i];
+	element.innerHTML = resource_name[i]+"（平成28年の観光客数："+popular+"人）";
 	var objBody = document.getElementById("spot_list");
 	objBody.appendChild(element);
   //var test = document.getElementById('spot_list');
