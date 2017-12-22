@@ -1,5 +1,4 @@
 var resource = [];
-set_resource();
 function set_resource() {
   //マーカー配列
   //RESAS_APIからの読み込み

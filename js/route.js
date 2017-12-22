@@ -1,4 +1,5 @@
 function route(from,to){
+  map_ini();
   var renderFLG=false;
   var directionsDisplay;
   var directionsService=new google.maps.DirectionsService();

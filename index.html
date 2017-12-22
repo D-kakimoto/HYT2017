@@ -17,6 +17,7 @@
   <script type="text/javascript" src="js/distance.js">//</script>
   <script type="text/javascript" src="js/popular.js">//</script>
   <script type="text/javascript" src="js/route.js">//</script>
+  <script type="text/javascript" src="js/tab_change.js">//</script>
   <style>
   html,body,h1,h2,h3,h4,h5 {
     font-family:"RobotoDraft","Roboto",sans-serif;
@@ -69,26 +70,36 @@
         <input type="button" style="witdth: 200px; height: 30px" value="マーカ表示" id="button">
       </div>
       <div class="inner">
-        <div class="spot_info">
-          ここに寄り道スポット情報を表示
-          ここに寄り道スポット情報を表示
-          ここに寄り道スポット情報を表示
-          ここに寄り道スポット情報を表示
-          ここに寄り道スポット情報を表示
+        <div id="javascript_tab_sample">
+          <div id="tab">
+            <original><a href="#spot_list"><input type="button" style="witdth: 200px; height: 30px" value="より" class="selected"></a></original>
+            <original><a href="#route_list"><input type="button" style="witdth: 200px; height: 30px" value="経路検索" class="selected"></a></original>
+          </div>
+         <div id="spot_list">
+           <div class="spot_info">
+             ここに寄り道スポット情報を表示
+             ここに寄り道スポット情報を表示
+             ここに寄り道スポット情報を表示
+             ここに寄り道スポット情報を表示
+             ここに寄り道スポット情報を表示
+           </div>
+         </div>
+         <div id="route_list">
+           <p>
+            <label for="mode">モード：<select id="mode" name="mode">
+               <option value="driving" selected>DRIVING（自動車）</option>
+               <option value="bicycling">BICYCLING （自転車）</option>
+               <option value="transit">TRANSIT（電車）</option>
+               <option value="walking">WALKING（徒歩）</option>
+            </select></label>
+          </p>
+          <div class="button-group">
+             <button id="show" class="button active">ルート表示</button>
+             <button id="hide" class="button">ルート非表示</button>
+          </div>
+          <div id="directions_panel" style="width:100%"></div>
         </div>
-        <p>
-         <label for="mode">モード：<select id="mode" name="mode">
-            <option value="driving" selected>DRIVING（自動車）</option>
-            <option value="bicycling">BICYCLING （自転車）</option>
-            <option value="transit">TRANSIT（電車）</option>
-            <option value="walking">WALKING（徒歩）</option>
-         </select></label>
-       </p>
-      <div class="button-group">
-         <button id="show" class="button active">ルート表示</button>
-         <button id="hide" class="button">ルート非表示</button>
-      </div>
-        <div id="directions_panel" style="width:100%"></div>
+        </div>
       </div>
     </div>
     <br clear="all" />

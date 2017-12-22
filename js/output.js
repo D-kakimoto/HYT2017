@@ -8,16 +8,22 @@ var via_lat,via_lng;
 var turn;
 //初期化処理でGoogle Mapsを表示
 $(function(){
-    var myCenter = new google.maps.LatLng(33.965,135.562);
-    var mapProp = {
-	     center:myCenter,
-	     zoom:10,
-	     minZoom:6,
-	     mapTypeId : google.maps.MapTypeId.ROADMAP,
-	     mapTypeControl: true
-    };
-    map = new google.maps.Map(document.getElementById("map_canvas"),mapProp);
+  map_ini();
+  set_resource();
+  get_tourist();
 });
+
+function map_ini(){
+  var myCenter = new google.maps.LatLng(33.965,135.562);
+  var mapProp = {
+     center:myCenter,
+     zoom:10,
+     minZoom:6,
+     mapTypeId : google.maps.MapTypeId.ROADMAP,
+     mapTypeControl: true
+  };
+  map = new google.maps.Map(document.getElementById("map_canvas"),mapProp);
+}
 
 //緯度経度を取得(入力：住所(文字列)→出力：geoCodeResults(オブジェクト))
 function get_latlng(address,type){
@@ -73,6 +79,7 @@ function attachMessage(marker, msg) {
 
 //出発地と目的地が送信された時の処理
 window.onload=function(){
+  tab_set();
   var button = document.getElementById("button");
   var data_check_button = document.getElementById("data_check");
   // ボタンが押された時の処理
