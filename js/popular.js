@@ -87,5 +87,5 @@ function tourist(str1,k){
         popular="観光客数データなし";
     }
   }
-  spot_info(i,popular);
+  spot_info(k,popular);
 }

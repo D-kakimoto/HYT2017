@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<title>寄り道支援アプリケーション</title>
+<title>みちくさしるべ</title>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" href="css/route.css" />
@@ -51,6 +51,11 @@
     border-left: double 7px #4ec4d3;/*左線*/
     border-right: double 7px #4ec4d3;/*右線*/
   }
+  #button_tabs{
+    all: unset;
+    padding: 0.5em 1em;
+    text-align: center;
+  }
   </style>
 </head>
 
@@ -58,7 +63,7 @@
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"></div>
 <div class="w3-main" style="margin-left:0px;">
   <header class="w3-container w3-theme w3-padding-hor-64 w3-padding-ver-64">
-    <h1 class="w3-xxxlarge w3-padding-hor-16">寄り道支援アプリケーション</h1>
+    <h1 class="w3-xxxlarge w3-padding-hor-16">みちくさしるべ</h1>
   </header>
   <div class="w3-container w3-padding-hor-32 w3-padding-ver-64">
   <div class="w3-example w3-section">
@@ -73,8 +78,8 @@
       <div class="inner">
         <div id="javascript_tab_sample">
           <div id="tab">
-            <original><a href="#spot_list"><input type="button" style="witdth: 50%" value="寄り道スポット" class="selected w3-button w3-block w3-teal"></a></original>
-            <original><a href="#route_list"><input type="button" style="witdth: 50%" value="経路情報の表示" class="selected w3-button w3-block w3-teal"></a></original>
+            <original><a href="#spot_list"><input type="button" style="witdth: 50%" value="みちくさスポット" class="selected w3-button w3-teal" id="button_tabs"></a></original>
+            <original><a href="#route_list"><input type="button" style="witdth: 50%" value="経路情報の表示" class="selected w3-button w3-teal" id="button_tabs"></a></original>
           </div>
          <div id="spot_list">
          </div>
@@ -97,12 +102,12 @@
   </div>
   <br>
 
-  <h2 class="w3-text-teal">寄り道支援システム</h2>
-  <h5>和歌山県内の寄り道スポットを推薦するシステムです．</h5>
+  <h2 class="w3-text-teal">みちくさしるべ</h2>
+  <h5>和歌山県内のみちくさスポットを推薦するシステムです．</h5>
   <ul class="w3-leftbar w3-theme-border" style="list-style-type:none">
     <li>使い方</li>
     <li>１．出発地と目的地を入力しましょう</li>
-    <li>２．寄り道スポットが出てきます</li>
+    <li>２．みちくさスポットが出てきます</li>
   </ul>
   <br>
 
