@@ -1,13 +1,15 @@
-//クリックしたら緯度経度を出力するイベント
+//クリックしたら観光資源を出力するイベントを設定
 function latlngEvent(i) {
-  resource[i].addListener('click', function(){ // マーカーをクリックしたとき
+  resource[i].event.addListener('click', function(){ // マーカーをクリックしたとき
     var pos = resource[i].getPosition(); // 緯度経度の取得
     var lat = pos.lat();
     var lng = pos.lng();
-    //リバースジオコーディング
+	  console.log(resource[i].getTitle());
     var popular = reverseGeocoding(lat, lng);
   });
+  return popular;
 }
+
 
 // リバースジオコーディング
 function reverseGeocoding(lat,lng) {
@@ -33,10 +35,10 @@ function reverseGeocoding(lat,lng) {
             break;
           }
         }
-      }else{
+      } else {
         alert("Geocoder failed due to: " + status);
       }
-    console.log(popular);
+      console.log(popular);
     });
   }
   return popular;
@@ -67,7 +69,7 @@ function tourist(str1){
   var popular;
   for(var i=0;i<get_tourist.length;i++){
     if(get_tourist[i]["市町村"] == str1){
-      if(get_tourist[i]["h28"] > 700000){
+      if(get_tourist[i]["h28"] > 1000000){
         popular="有名";
       }else{
         popular="マイナー";

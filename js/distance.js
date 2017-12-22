@@ -12,15 +12,18 @@ function location_distance(lat1, lon1, lat2, lon2){
   var distance = Math.pow(meridian_curvature_radius * lat_difference, 2) + Math.pow(prime_vertical_circle_curvature_radius * Math.cos(lat_average) * lon_difference, 2);
   distance = Math.sqrt(distance);
   distance_unit = Math.round(distance);
+  /*
   if(distance_unit < 1000){//1000m以下ならメートル表記
     distance_unit = distance_unit+"m";
   }else{//1000m以上ならkm表記
     distance_unit = Math.round(distance_unit / 100);
     distance_unit = (distance_unit / 10)+"km";
   }
+  */
   //hoge['distance']で小数点付きの直線距離を返す（メートル）
   //hoge['distance_unit']で整形された直線距離を返す（1000m以下ならメートルで記述 例：836m ｜ 1000m以下は小数点第一位以上の数をkmで記述 例：2.8km）
-  return distance_unit;
+  /*** 返り値変更 ***/
+  return distance;
 }
 
 function deg2rad (angle) {

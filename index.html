@@ -18,6 +18,7 @@
   <script type="text/javascript" src="js/popular.js">//</script>
   <script type="text/javascript" src="js/route.js">//</script>
   <script type="text/javascript" src="js/tab_change.js">//</script>
+
   <style>
   html,body,h1,h2,h3,h4,h5 {
     font-family:"RobotoDraft","Roboto",sans-serif;
@@ -41,7 +42,7 @@
     padding: 0.5em 1em;
     text-align: center;
   }
-  .spot_info {
+  #spot_list {
     padding: 0.5em 1em;
     margin: 2em 0;
     height:300px;
@@ -67,30 +68,20 @@
       <div id="setbutton"　style="display:inline-flex">
         <input type="text" name="from" style="witdth: 300px; height: 30px" placeholder="出発地" id="from">
         <input type="text" name="to" style="witdth: 300px; height: 30px" placeholder="目的地" id="to">
-        <input type="button" style="witdth: 200px; height: 30px" value="マーカ表示" id="button">
+        <input type="button" style="witdth: 200px; height: 30px" value="経路検索" id="button">
       </div>
       <div class="inner">
         <div id="javascript_tab_sample">
           <div id="tab">
-            <original><a href="#spot_list"><input type="button" style="witdth: 200px; height: 30px" value="より" class="selected"></a></original>
-            <original><a href="#route_list"><input type="button" style="witdth: 200px; height: 30px" value="経路検索" class="selected"></a></original>
+            <original><a href="#spot_list"><input type="button" style="witdth: 50%" value="寄り道スポット" class="selected w3-button w3-block w3-teal"></a></original>
+            <original><a href="#route_list"><input type="button" style="witdth: 50%" value="経路情報の表示" class="selected w3-button w3-block w3-teal"></a></original>
           </div>
          <div id="spot_list">
-           <div class="spot_info">
-             ここに寄り道スポット情報を表示
-             ここに寄り道スポット情報を表示
-             ここに寄り道スポット情報を表示
-             ここに寄り道スポット情報を表示
-             ここに寄り道スポット情報を表示
-           </div>
          </div>
          <div id="route_list">
            <p>
             <label for="mode">モード：<select id="mode" name="mode">
                <option value="driving" selected>DRIVING（自動車）</option>
-               <option value="bicycling">BICYCLING （自転車）</option>
-               <option value="transit">TRANSIT（電車）</option>
-               <option value="walking">WALKING（徒歩）</option>
             </select></label>
           </p>
           <div class="button-group">

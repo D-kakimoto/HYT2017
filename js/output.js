@@ -5,25 +5,21 @@ var from_to_distance;
 var f_lat, f_lng;
 var t_lat,t_lng;
 var via_lat,via_lng;
-var turn;
+var turn = [];
+
+
 //初期化処理でGoogle Mapsを表示
 $(function(){
-  map_ini();
-  set_resource();
-  get_tourist();
+    var myCenter = new google.maps.LatLng(33.965,135.562);
+    var mapProp = {
+	     center:myCenter,
+	     zoom:10,
+	     minZoom:6,
+	     mapTypeId : google.maps.MapTypeId.ROADMAP,
+	     mapTypeControl: true
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"),mapProp);
 });
-
-function map_ini(){
-  var myCenter = new google.maps.LatLng(33.965,135.562);
-  var mapProp = {
-     center:myCenter,
-     zoom:10,
-     minZoom:6,
-     mapTypeId : google.maps.MapTypeId.ROADMAP,
-     mapTypeControl: true
-  };
-  map = new google.maps.Map(document.getElementById("map_canvas"),mapProp);
-}
 
 //緯度経度を取得(入力：住所(文字列)→出力：geoCodeResults(オブジェクト))
 function get_latlng(address,type){
@@ -34,7 +30,7 @@ function get_latlng(address,type){
         }
     }).done(function(geoCodeResults, status){
         if(type == "from_set" || "to_set"){
-          set_markers(geoCodeResults,address,type);
+//          set_markers(geoCodeResults,address,type);
         }else if (type == "via_set"){
           console.log("デバッグ");
         }
@@ -82,6 +78,7 @@ window.onload=function(){
   tab_set();
   var button = document.getElementById("button");
   var data_check_button = document.getElementById("data_check");
+
   // ボタンが押された時の処理
   button.onclick = function(){
     // フォームに入力された住所情報を取得
@@ -100,8 +97,18 @@ window.onload=function(){
     console.log("出発地:"+from);
     console.log("目的地:"+to);
     console.log("出発地から目的地の直線距離:"+from_to_distance);
-    console.log("曲がり角の緯度経度:"+turn);
+    console.log("曲がり角の緯度経度:"+turn[0]);
     console.log("観光客数に関するcsvデータ:"+get_tourist);
     console.log("RESASから取得した観光資源情報:"+resource);
   }
+
+}
+
+function spot_info(i){
+  var element = document.createElement('div');
+  element.id = "listup";
+	element.innerHTML = resource_name[i];
+	var objBody = document.getElementById("spot_list");
+	objBody.appendChild(element);
+  //var test = document.getElementById('spot_list');
 }
